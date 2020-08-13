@@ -67,19 +67,9 @@ class WorkOrderController extends Controller
         $wo->employee_id = $request->trabajador;
         $wo->price = $request->precio;
         $wo->status = $request->estado;
-
-        if($wo->save()){
-            $status = true;
-            $message = "La orden de trabajo ".$wo->wo_number." se ha creado correctamente";
-        } else {
-            $status = false;
-            $message = "Error al crear la orden de trabajo";
-        }
+        $wo->save();
         
-        return response()->json([
-            'status' => $status,
-            'message' => $message
-        ]);
+        return redirect('/ordenes-de-trabajo');
     }
 
     /**
@@ -141,23 +131,17 @@ class WorkOrderController extends Controller
     public function update(Request $request, WorkOrder $wo, $id)
     {
         //
-        if(
-            $wo::where('id', '=', $id)->update(
-                array(
-                    'wo_number' => $request->numero_ot,
-                    'wo_description' => $request->descripcion,
-                    'employee_id' => $request->trabajador,
-                    'price' => $request->precio,
-                    'status' => $request->estado
-                )
+        $wo::where('id', '=', $id)->update(
+            array(
+                'wo_number' => $request->numero_ot,
+                'wo_description' => $request->descripcion,
+                'employee_id' => $request->trabajador,
+                'price' => $request->precio,
+                'status' => $request->estado
             )
-        ){
-            $status = true;
-            $menssage = "Order de trabajo actualizada correctamente";
-        } else {
-            $status = false;
-            $menssage = "Orden de trabajo no pudo ser actualizada";
-        }
+        );
+
+        return redirect('/ordenes-de-trabajo');
     }
 
     /**
