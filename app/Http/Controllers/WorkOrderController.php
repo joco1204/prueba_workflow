@@ -23,7 +23,7 @@ class WorkOrderController extends Controller
         $count = count($work_order::All());
         $wo = $db::table('work_orders as a')
             ->join('employees as b', 'a.employee_id', '=', 'b.id')
-            ->select('a.wo_number', 'a.wo_description', 'b.name as employee', 'a.price', 'status', 'a.created_at', 'b.updated_at')
+            ->select('a.id', 'a.wo_number', 'a.wo_description', 'b.name as employee', 'a.price', 'status', 'a.created_at', 'b.updated_at')
             ->get();
 
         return view('work_order.index')->with(
@@ -43,12 +43,19 @@ class WorkOrderController extends Controller
     {
         //
         $trabajadores = array('' => '[Seleccione una opción]');
+        $estados = array(
+            '' => '[Seleccione una opción]',
+            'creacion' => 'creacion',
+            'asgnacion' => 'asgnacion',
+            'ejecucion' => 'ejecucion',
+        );
         foreach ($employee::all() as $value) {
             $trabajadores[$value->id] = $value->name;
         }
         return view('work_order.new')->with(
             [
-                'trabajadores' => $trabajadores
+                'trabajadores' => $trabajadores,
+                'estados' => $estados
             ]
         );
     }
@@ -68,7 +75,7 @@ class WorkOrderController extends Controller
         $wo->price = $request->precio;
         $wo->status = $request->estado;
         $wo->save();
-        
+
         return redirect('/ordenes-de-trabajo');
     }
 
