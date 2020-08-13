@@ -77,4 +77,4 @@
     </section>
     <section>
         <content>
-            <div style="height: 20px;"></div>
+            <br>
