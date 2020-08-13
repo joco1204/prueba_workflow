@@ -23,7 +23,6 @@ class WorkOrderController extends Controller
         $count = count($work_order::All());
         $wo = $db::table('work_orders as a')
             ->join('employees as b', 'a.employee_id', '=', 'b.id')
-            ->where('a.id', '=', $id)
             ->select('a.wo_number', 'a.wo_description', 'b.name as employee', 'a.price', 'status', 'a.created_at', 'b.updated_at')
             ->get();
 
