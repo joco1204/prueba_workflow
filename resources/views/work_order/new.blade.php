@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
-        <p>Nueva Orden de Trabajo</p>
+        <div class="row">
+    		<div class="col-lg-12 text-center">
+    			<h2>Nueva Orden de Trabajo</h2>
+    		</div>
+    	</div>
+    	<br>
     </div>
 @endsection
