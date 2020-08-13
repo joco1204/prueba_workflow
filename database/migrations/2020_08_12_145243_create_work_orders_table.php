@@ -19,7 +19,7 @@ class CreateWorkOrdersTable extends Migration
             $table->string('wo_description');
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->integer('price');
+            $table->integer('price')->unsigned();
             $table->string('status');
             $table->timestamps();
         });

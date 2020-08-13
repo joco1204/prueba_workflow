@@ -7,7 +7,7 @@
     			<h2>Nuevo Trabajador</h2>
     		</div>
     	</div>
-    	{{ Form::open(array('method' => 'post', 'action'=> 'EmployeeController@store', 'id' => 'nuevo-trabajador' )) }}
+    	{{ Form::open(array('method' => 'post', 'action'=> 'EmployeeController@store', 'id' => 'nuevo-trabajador', 'autocomplete' => 'off' )) }}
     		<div class="row">
     			<div class="col-lg-12">
 					{{ Form::label('nombre_trabajador', 'Nombre trabajador', array('class' => '')) }}

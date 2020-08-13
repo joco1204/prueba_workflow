@@ -47,21 +47,8 @@ class EmployeeController extends Controller
         //
         $employee->name = $request->nombre_trabajador;
         $employee->identification = $request->identificacion;
-
-        if($employee->save()){
-            $status = true;
-            $message = "El trabajador ".$employee->name." se ha creado correctamente";
-        } else {
-            $status = false;
-            $message = "Error al crear el trabajador";
-        }
-
-        return response()->json([
-            'status' => $status,
-            'message' => $message
-        ]);
-
-        
+        $employee->save();
+        return redirect('/trabajadores');
     }
 
     /**
@@ -106,13 +93,13 @@ class EmployeeController extends Controller
     public function update(Request $request, Employee $employee, $id)
     {
         //
-        if($employee::where('id', '=', $id)->update(array('name' => $request->nombre_trabajador,'identification' => $request->identificacion))){
-            $status = true;
-            $menssage = "Trabajador actualizado correctamente";
-        } else {
-            $status = false;
-            $menssage = "Trabajador no pudo ser actualizado";
-        }
+        $employee::where('id', '=', $id)->update(
+            array(
+                'name' => $request->nombre_trabajador,
+                'identification' => $request->identificacion
+            )
+        );
+        return redirect('/trabajadores');
     }
 
     /**

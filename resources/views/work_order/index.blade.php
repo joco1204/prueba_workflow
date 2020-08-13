@@ -50,7 +50,6 @@
     							</td>
     						</tr>
     					@endforeach
-                        {{ $orden_trabajo->links() }}
     				</tbody>
     			</table>
     		</div>
