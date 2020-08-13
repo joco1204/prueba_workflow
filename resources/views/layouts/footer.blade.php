@@ -10,5 +10,41 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+        <script type="text/javascript" src="{{ asset('js/layout/script.js')}}"></script>
+
+        <!-- scripts employee -->
+        @if (\Request::is('trabajadores'))
+            <script type="text/javascript" src="{{ asset('js/employee/script.js')}}"></script>
+        @endif
+
+        @if (\Request::is('nuevo-trabajador'))
+            <script type="text/javascript" src="{{ asset('js/employee/new.js')}}"></script>
+        @endif
+
+        @if (\Request::is('ver-trabajador'))
+            <script type="text/javascript" src="{{ asset('js/employee/view.js')}}"></script>
+        @endif
+
+        @if (\Request::is('editar-trabajador'))
+            <script type="text/javascript" src="{{ asset('js/employee/edit.js')}}"></script>
+        @endif
+
+        <!-- scripts wo -->
+        @if (\Request::is('ordenes-de-trabajo'))
+            <script type="text/javascript" src="{{ asset('js/work_order/script.js')}}"></script>
+        @endif
+
+        @if (\Request::is('nueva-orden-de-trabajo'))
+            <script type="text/javascript" src="{{ asset('js/work_order/new.js')}}"></script>
+        @endif
+
+        @if (\Request::is('ver-orden-de-trabajo'))
+            <script type="text/javascript" src="{{ asset('js/work_order/view.js')}}"></script>
+        @endif
+
+        @if (\Request::is('editar-orden-de-trabajo'))
+            <script type="text/javascript" src="{{ asset('js/work_order/edit.js')}}"></script>
+        @endif
     </body>
 </html>

@@ -24,7 +24,7 @@ class WorkOrderController extends Controller
         $count = count($wo);
         return view('work_order.index')->with(
             [
-                'orden_trabajo' => $wo::paginate(10),
+                'orden_trabajo' => $wo,
                 'count' => $count
             ]
         );

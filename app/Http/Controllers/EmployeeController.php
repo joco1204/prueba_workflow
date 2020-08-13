@@ -19,7 +19,7 @@ class EmployeeController extends Controller
         $count = count($employees);
         return view('employee.index')->with(
             [
-                'trabajadores' => $employees::paginate(10),
+                'trabajadores' => $employees,
                 'count' => $count
             ]
         );
