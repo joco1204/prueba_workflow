@@ -8,5 +8,37 @@
     		</div>
     	</div>
     	<br>
+    	{{ Form::open(array('method' => 'post','action'=> 'WorkOrderController@store','id' => 'nueva-ot' )) }}
+    		<div class="row">
+    			<div class="col-lg-12">
+    				
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-12">
+    				
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-12">
+    				
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-12">
+    				
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-12">
+    				
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-lg-12">
+    				
+    			</div>
+    		</div>
+    	{{ Form::close() }}
     </div>
 @endsection

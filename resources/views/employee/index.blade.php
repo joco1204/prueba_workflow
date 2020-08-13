@@ -36,8 +36,8 @@
     							<td>{{$row->created_at}}</td>
     							<td>{{$row->updated_at}}</td>
     							<td>
-    								<a href="{{ route('ver-trabajador/$row->id') }}" class="btn btn-success btn-sm">Ver</a>
-    								<a href="{{ route('editar-trabajador/$row->id') }}" class="btn btn-warning btn-sm">Modificar</a>
+    								<a href="{{ route('ver-trabajador', $row->id) }}" class="btn btn-success btn-sm">Ver</a>
+    								<a href="{{ route('editar-trabajador', $row->id) }}" class="btn btn-warning btn-sm">Modificar</a>
     							</td>
     						</tr>
     					@endforeach
