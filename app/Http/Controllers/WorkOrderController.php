@@ -17,11 +17,16 @@ class WorkOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(WorkOrder $work_order)
+    public function index(WorkOrder $work_order, DB $db)
     {
         //
-        $wo = $work_order::All();
-        $count = count($wo);
+        $count = count($work_order::All());
+        $wo = $db::table('work_orders as a')
+            ->join('employees as b', 'a.employee_id', '=', 'b.id')
+            ->where('a.id', '=', $id)
+            ->select('a.wo_number', 'a.wo_description', 'b.name as employee', 'a.price', 'status', 'a.created_at', 'b.updated_at')
+            ->get();
+
         return view('work_order.index')->with(
             [
                 'orden_trabajo' => $wo,
